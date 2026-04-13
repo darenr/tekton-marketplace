@@ -1,5 +1,5 @@
 {
-  "name": "tekton-company-evaluator",
+  "name": "company-evaluator-plugin",
   "description": "Adds a /company-evaluator skill for evaluating companies",
   "version": "1.0.0"
 }
