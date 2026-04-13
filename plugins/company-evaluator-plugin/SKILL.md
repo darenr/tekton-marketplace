@@ -1,7 +1,22 @@
 ---
 name: company-evaluator
-description: Evaluate a startup for investment. Trigger this skill whenever the user says "evaluate this company" or provides a company name and URL for analysis. This skill orchestrates research, document review, and the creation of an investment memo.
+description:  >-
+  Evaluate a startup for investment. Trigger this skill whenever the user says "evaluate this company" or provides a company name and URL for analysis. This skill orchestrates research, document review, and the creation of an investment memo.
 ---
+
+# What this skill produces
+
+An Investor Memo — a comprehensive document that synthesizes research on the founders, investors, market, and competitive landscape to provide a clear recommendation on whether to pursue an investment opportunity.
+
+The final memo should be structured as follows:
+
+```
+# [Company Name] — Investment Memo
+**Date:** [Date]
+**Stage:** [Pre-Seed / Seed / Series A]
+**Sector:** [Category]
+**Prepared by:** AI Research Assistant
+
 
 # Tekton Company Evaluator
 
@@ -134,16 +149,7 @@ Produce a formal document with the sections defined in the **Output Format** bel
 * **Signal over Certainty:** At the early stage, hard data is scarce. Focus on pattern-matching signals (founder quality, investor conviction, early traction velocity) and be explicit about your confidence level.
 * **Market Education:** When the startup operates in a niche or technical domain, write the Market Opportunity section so that a generalist partner can understand it without prior domain knowledge.
 
-## Output Format
 
-The final memo should be structured as follows:
-
-```
-# [Company Name] — Investment Memo
-**Date:** [Date]
-**Stage:** [Pre-Seed / Seed / Series A]
-**Sector:** [Category]
-**Prepared by:** AI Research Assistant
 
 ---
 
