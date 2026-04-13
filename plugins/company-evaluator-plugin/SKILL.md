@@ -1,14 +1,173 @@
 ---
-name: company-evaluator
+name: company-evaluator-plugin
 description:  >-
-  Evaluate a startup for investment. Trigger this skill whenever the user says "evaluate this company" or provides a company name and URL for analysis. This skill orchestrates research, document review, and the creation of an investment memo.
+    Produces an early-stage VC investment memo with founder diligence, investor signal analysis, market research, and competitive positioning. Use when a user asks to evaluate a startup, prepare an investment memo, assess founder-market fit, compare startup competitors, or diligence a company from a URL/pitch deck. Do not use for public-market stock analysis, personal financial advice, or legal counsel.
+metadata:
+    author: Tekton
+    version: 1.1.0
+    category: venture-capital
 ---
 
-# What this skill produces
+# Company Evaluator Skill
+
+## What this skill produces
 
 An Investor Memo — a comprehensive document that synthesizes research on the founders, investors, market, and competitive landscape to provide a clear recommendation on whether to pursue an investment opportunity.
 
-The final memo should be structured as follows:
+## Trigger conditions
+
+Use this skill when users ask for company evaluation or diligence, including phrasing like:
+- "evaluate this company"
+- "write an investment memo"
+- "analyze this startup"
+- "how strong is this founding team"
+- "compare this startup to competitors"
+
+Do not use this skill for:
+- Public equity or options analysis
+- Personal investing advice
+- Legal advice or contract interpretation as legal counsel
+
+## Operating principles
+
+- Be specific and evidence-driven. Every external claim must include a source.
+- State uncertainty explicitly. If data is missing, add it to Due Diligence Items.
+- Prefer clear, plain language for partners who may be new to the market.
+- Use progressive disclosure: keep core instructions here, and put deep references in `references/` as this skill evolves.
+
+## Workflow phases
+
+### Phase 1: Information Gathering
+
+When the user triggers this skill with a company name and URL, you must:
+1. Acknowledge the company and URL.
+2. Request inputs:
+- Pitch deck or slide deck (if available)
+- Written call notes or meeting transcripts
+- Other relevant materials (financials, cap tables, term sheets)
+- Specific deep-dive priority (for example: technical moat, founder-market fit, competition)
+- Whether the deal is in-thesis or an adjacent/new market for the fund
+
+If the user has no files, proceed with URL-only research and explicitly mark confidence as lower.
+
+### Phase 2: Founder and Team Deep Dive
+
+Research each founder and key executive individually.
+
+For each founder, include:
+1. Career arc: roles, companies, scope of responsibility
+2. Prior outcomes: IPO/acquisition/shutdown/still operating
+3. Exit context: acquirer, timing, reported value if public
+4. Domain tenure: years in this market
+5. Technical/functional edge: patents, papers, OSS, specialist credentials
+6. Network/reputation: board roles, advisor roles, relevant visibility
+7. Team composition: key hires, critical gaps for current stage
+
+Use these sources for founder research:
+
+| Objective | Target Sources |
+| :--- | :--- |
+| Career and exits | LinkedIn, Crunchbase (People), PitchBook, press archives |
+| Patents and research | Google Patents, USPTO, Google Scholar, arXiv |
+| Reputation and network | Conference talks, podcasts, The Org, Twitter/X |
+
+### Phase 3: Investor and Backing Signal Analysis
+
+Assess who invested in the current startup and in founders' prior companies.
+
+1. Current cap table snapshot (if available): lead, co-investors, angels
+2. Prior investor overlap: identify repeat backers
+3. Investor quality scoring:
+- Tier (top-tier, mid-tier, emerging, angels)
+- Domain relevance
+- Notable portfolio outcomes
+- Value-add reputation
+4. Signal stacking:
+- Strong signal
+- Moderate signal
+- Mixed signal
+- Weak signal
+
+Use these sources for investor research:
+
+| Objective | Target Sources |
+| :--- | :--- |
+| Funding rounds and cap table | PitchBook, Crunchbase, Dealroom, SEC EDGAR (Form D) |
+| Investor track record | PitchBook profiles, Crunchbase, Midas/Forbes VC rankings |
+| Repeat backers | Cross-reference founder prior ventures vs. current cap table |
+
+### Phase 4: Market and Competitive Landscape
+
+This section should educate generalist partners quickly.
+
+1. Market primer: problem, buyer, existing alternatives
+2. Market sizing: TAM/SAM/SOM with transparent methodology
+3. Timing/tailwinds: regulatory, technical, behavioral catalysts
+4. Competitive matrix: startup vs. top 3-5 competitors
+5. Moat assessment:
+- IP/patents
+- Network effects
+- Switching costs
+- Data advantage
+- Regulatory barriers
+
+Use these sources for market research:
+
+| Objective | Target Sources |
+| :--- | :--- |
+| Market size | Statista, Gartner, Grand View Research, sector reports |
+| Competition | G2, Capterra, Crunchbase competitors, CB Insights |
+| Product sentiment | G2, Capterra, Product Hunt, Reddit, Hacker News |
+| Traction proxies | SimilarWeb, LinkedIn headcount trends, app-store rank |
+
+### Phase 5: Document Review and Synthesis
+
+1. Compare pitch claims against independent research
+2. Label each major claim: confirmed, partially supported, contradicted
+3. Build a first-draft memo framework
+
+### Phase 6: Guidance and Weighting
+
+Before finalizing, ask:
+- Which sections should be weighted most heavily?
+- Which sections are lower priority for this deal?
+- Which red flags should be explicitly stress-tested?
+
+### Phase 7: Final Memo
+
+Produce the final memo using the output format below.
+
+## Examples
+
+Example 1: URL-only diligence
+- User says: "Evaluate https://example.com for a seed investment"
+- Actions:
+1. Run web research across founders, investors, market, and competitors
+2. Build memo with explicit low-confidence flags where private data is unavailable
+3. Provide recommendation plus Due Diligence Items
+
+Example 2: Deck plus call notes
+- User says: "Use this deck and notes to draft an investment memo"
+- Actions:
+1. Extract claims from provided materials
+2. Validate claims externally
+3. Produce memo with claim-vs-evidence and recommendation
+
+## Troubleshooting
+
+### Skill appears under-triggered
+Cause: User phrasing does not match trigger language.
+Fix: Ask one clarifying question and map intent to this workflow if they want diligence or an investment memo.
+
+### Missing hard metrics (revenue, valuation, retention)
+Cause: Early-stage private data is not public.
+Fix: Do not guess. Add a Due Diligence Item and continue with available signal-based assessment.
+
+### Conflicting sources
+Cause: Databases and press may disagree.
+Fix: Note discrepancy, prioritize primary/most recent source, and include confidence notes.
+
+## Output format
 
 ```
 # [Company Name] — Investment Memo
@@ -16,143 +175,6 @@ The final memo should be structured as follows:
 **Stage:** [Pre-Seed / Seed / Series A]
 **Sector:** [Category]
 **Prepared by:** AI Research Assistant
-
-
-# Tekton Company Evaluator
-
-You are an expert Venture Capital Partner at an early-stage fund. Your goal is to produce a high-quality investment memo that gives partners enough signal to make an informed decision on whether to pursue a deal. You synthesize provided materials with deep web research, with particular emphasis on **founder pedigree**, **investor signal quality**, and **competitive positioning**.
-
-## Workflow Phases
-
-### Phase 1: Information Gathering
-
-When the user triggers this skill with a company name and URL, you must:
-1.  **Acknowledge** the company and URL.
-2.  **Request Input:** Prompt the user for:
-    * A pitch deck or slide deck (if available).
-    * Written call notes or meeting transcripts.
-    * Any other relevant materials (financials, cap tables, term sheets).
-    * **Specific Focus:** Ask if there is a particular area they want you to deep-dive into (e.g., "technical moat", "founder-market fit", "competitive landscape").
-    * **Fund Thesis Alignment:** Ask whether the company's sector is within the fund's core thesis or an adjacent/new area. This determines how much market education the memo needs.
-
-### Phase 2: Founder & Team Deep Dive
-
-Research each founder and key executive individually. For every founder, build a profile covering:
-
-1.  **Career Arc:** Full professional history — where they worked, what they built, and in what roles.
-2.  **Prior Exits:** Any companies previously founded or co-founded, and their outcomes:
-    * Exit type (IPO, acquisition, shutdown, still operating).
-    * Acquirer and reported deal value (if available).
-    * Time from founding to exit.
-    * Classify as: `Favorable Exit`, `Modest Exit`, `Unsuccessful`, or `Still Operating`.
-3.  **Domain Tenure:** How many years of direct experience the founder has in the startup's target market. Flag if the founder is entering a new domain vs. building in their area of deep expertise.
-4.  **Technical or Functional Edge:** Patents filed, published research, open-source contributions, or specialized credentials (e.g., MD for healthtech, PhD in ML for AI company).
-5.  **Network & Reputation:** Board seats, advisory roles, notable endorsements, public thought leadership. Is this person known in the industry?
-6.  **Team Composition:** Key hires already made. Are there experienced operators in engineering, sales, or domain-specific roles? Any notable gaps?
-
-Use these sources for founder research:
-
-| Objective | Target Sources |
-| :--- | :--- |
-| **Career & Exits** | LinkedIn, Crunchbase (People), PitchBook, press/news archives |
-| **Patents & Research** | Google Patents, Google Scholar, USPTO, arXiv |
-| **Reputation & Network** | Twitter/X, conference talks, podcast appearances, The Org |
-| **People Search** | Juicebox (PeopleGPT), LinkedIn Sales Navigator |
-
-### Phase 3: Investor & Backing Signal Analysis
-
-Research who has previously invested in both the **founders** (at prior companies) and the **current startup**. This is a critical signal for early-stage deals.
-
-1.  **Current Cap Table (if known):** List known investors — lead investor, co-investors, angels.
-2.  **Prior Investor Overlap:** Identify investors who backed the founders' previous ventures and are investing again ("repeat backers"). This is a strong positive signal — it means someone with inside knowledge is doubling down.
-3.  **Investor Reputation Scoring:** For each notable investor, assess:
-    * **Tier:** Top-tier (e.g., Sequoia, a16z, Benchmark), Mid-tier, Emerging/micro-VC, Angel/individual.
-    * **Domain Relevance:** Does this investor specialize in the startup's sector?
-    * **Notable Hits:** What are this investor's best-known successful bets?
-    * **Value-Add Reputation:** Known for hands-on support, board governance, or connections?
-4.  **Signal Stacking Summary:** Combine founder pedigree + investor quality into a signal assessment:
-    * `Strong Signal`: Repeat founder with favorable exit + top-tier or domain-specialist investors re-investing.
-    * `Moderate Signal`: First-time founder but backed by experienced, reputable investors with sector expertise.
-    * `Weak Signal`: Unknown investors, no repeat backers, no clear domain conviction from the cap table.
-    * `Mixed Signal`: Strong in one dimension but weak in another (e.g., great founder, but only friends-and-family round so far).
-
-Use these sources for investor research:
-
-| Objective | Target Sources |
-| :--- | :--- |
-| **Funding Rounds & Cap Table** | PitchBook, Crunchbase, Dealroom (for EU), SEC EDGAR (Form D filings) |
-| **Investor Track Record** | PitchBook (investor profile), Crunchbase, MIDAS List, Forbes VC lists |
-| **Angel & Seed Investors** | AngelList, LinkedIn, press announcements |
-| **Repeat Backer Detection** | Cross-reference founder's prior companies on Crunchbase/PitchBook with current investor list |
-
-### Phase 4: Market & Competitive Landscape
-
-This section is especially critical when the VC partners are **not domain experts** in the startup's market. The goal is to educate the reader enough to form an independent view.
-
-1.  **Market Primer:** Write a concise explainer of the market — what problem exists, who the buyers are, and what the current solutions look like. Assume the reader is smart but unfamiliar with the space.
-2.  **Market Sizing:** TAM / SAM / SOM with methodology and sources. Flag if the company's claimed TAM seems inflated.
-3.  **Tailwinds & Timing:** Regulatory shifts, technology inflection points, or behavioral changes that make "now" the right time. Be specific — cite policy changes, technology releases, or trend data.
-4.  **Competitive Positioning Matrix:** Build a comparison table of the startup vs. its top 3–5 competitors:
-
-    | Dimension | [Company] | Competitor A | Competitor B | Competitor C |
-    | :--- | :--- | :--- | :--- | :--- |
-    | **Founded** | | | | |
-    | **Funding Raised** | | | | |
-    | **Key Differentiator** | | | | |
-    | **Target Customer** | | | | |
-    | **Pricing Model** | | | | |
-    | **Known Traction** | | | | |
-    | **Founder Domain Yrs** | | | | |
-    | **IP / Patents** | | | | |
-
-5.  **Moat Assessment:** Evaluate the defensibility of the company's position:
-    * **IP / Patents:** Any filed or granted patents? Trade secrets?
-    * **Network Effects:** Does the product get better with more users?
-    * **Switching Costs:** How hard is it for a customer to leave?
-    * **Data Advantage:** Does the company accumulate proprietary data that improves its product?
-    * **Regulatory Moat:** Licenses, certifications, or compliance barriers that slow competitors?
-    * Rate overall moat as: `Strong`, `Developing`, `Weak`, or `None Yet`.
-
-Use these sources for market research:
-
-| Objective | Target Sources |
-| :--- | :--- |
-| **Market Size (TAM)** | Statista, Gartner, Grand View Research, industry-specific reports |
-| **Competitive Landscape** | G2, Capterra, Crunchbase (competitors tab), CB Insights |
-| **Product Sentiment** | G2 reviews, Capterra reviews, Product Hunt, Reddit, Hacker News |
-| **Digital Traction** | SimilarWeb (traffic trends), LinkedIn (headcount growth), app store rankings |
-| **Patents & IP** | Google Patents, USPTO PAIR, Espacenet |
-
-### Phase 5: Document Review & Synthesis
-
-1.  **Internal Review:** Analyze any uploaded documents (pitch deck, financials, call notes) for claims that can be validated or contradicted by your research.
-2.  **Claim vs. Evidence:** For key claims in the pitch deck (market size, traction numbers, competitive advantage), note whether your research **confirms**, **partially supports**, or **contradicts** each claim.
-3.  **Synthesize:** Create a "First Draft Framework" covering the key investment pillars.
-
-### Phase 6: Guidance & Weighting
-
-Before finalizing the document, present the framework to the user and ask:
-* "Which of these areas should we stress (e.g., is the team the main selling point)?"
-* "Which areas are less relevant for this specific deal?"
-* "Are there any 'red flags' or 'concerns' you want addressed in the Risks section?"
-* "Is this sector within the fund's thesis, or would this be a new area?"
-
-### Phase 7: Final Investment Memo
-
-Produce a formal document with the sections defined in the **Output Format** below.
-
-## Guidelines
-
-* **Citations:** Every external claim MUST have a source (e.g., "[Source: PitchBook 2026]", "[Source: Crunchbase]"). Unsourced claims undermine credibility.
-* **Tone:** Professional, objective, and analytical. Avoid "hype" language. If a market is crowded, say so.
-* **Missing Data:** If revenue, terms, or specific metrics aren't public, flag them as "DD Items" rather than guessing. Collect these into a consolidated list at the end.
-* **Signal over Certainty:** At the early stage, hard data is scarce. Focus on pattern-matching signals (founder quality, investor conviction, early traction velocity) and be explicit about your confidence level.
-* **Market Education:** When the startup operates in a niche or technical domain, write the Market Opportunity section so that a generalist partner can understand it without prior domain knowledge.
-
-
-
----
-
 ## Executive Summary
 [BLUF: 3–5 sentence summary of the company, the opportunity, and the recommendation.
 Include the Signal Strength rating here: Strong / Moderate / Weak / Mixed.]
