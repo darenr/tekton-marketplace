@@ -1,0 +1,13 @@
+{
+  "name": "tekton-plugins",
+  "owner": {
+    "name": "Tekton"
+  },
+  "plugins": [
+        {
+        "name": "company-evaluator-plugin",
+        "source": "./company-evaluator-plugin",
+        "description": "Adds a /company-evaluator skill for evaluating companies"
+        }
+    ]
+}
