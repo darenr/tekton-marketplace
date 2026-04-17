@@ -1,7 +1,7 @@
 {
   "name": "tekton-company-evaluator",
   "owner": {
-    "name": "Daren Race"",
+    "name": "Daren Race",
     "email": "daren.race@gmail.com"
   },
   "metadata": {
@@ -13,11 +13,6 @@
       "name": "tekton-company-evaluator",
       "source": "./plugins/company-evaluator-plugin",
       "description": "Adds a /company-evaluator skill for evaluating early-stage startup companies"
-    },
-    {
-      "name": "draft-pmkt",
-      "source": "./plugins/draft-pmkt",
-      "description": "Adds a /draft-pmkt skill that drafts a PMKT document derived from an investment memo document that evaluates: Product, Market, Competition, Capital intensity, Valuation, Syndicate, Team, following the template found in assets"
     }
   ]
 }
