@@ -105,13 +105,16 @@ This section should educate generalist partners quickly.
 1. Market primer: problem, buyer, existing alternatives
 2. Market sizing: TAM/SAM/SOM with transparent methodology
 3. Timing/tailwinds: regulatory, technical, behavioral catalysts
-4. Competitive matrix: startup vs. top competitors, including segmentation by type, incumbents vs. startups, and funding history
+4. Competitive matrix: startup vs. top competitors, including segmentation by type, incumbents vs.    startups, and funding history
 5. Moat assessment:
-- IP/patents
-- Network effects
-- Switching costs
-- Data advantage
-- Regulatory barriers
+    - IP/patents
+    - Network effects
+    - Switching costs
+    - Data advantage
+    - Founder Advantage
+    - Brand & Trust
+    - Economies of Scale
+    - Regulatory barriers
 
 Use these sources for market research:
 
@@ -134,6 +137,7 @@ Before finalizing, ask:
 - Which sections should be weighted most heavily?
 - Which sections are lower priority for this deal?
 - Which red flags should be explicitly stress-tested?
+- Are there any specific competitive companies to consider
 
 ### Phase 7: Final Memo
 
