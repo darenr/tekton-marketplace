@@ -1,7 +1,7 @@
 ---
 name: company-evaluator-plugin
 description:  >-
-    Produces an early-stage VC investment memo with founder diligence, investor signal analysis, market research, and competitive positioning. Use when a user asks to evaluate a startup, prepare an investment memo, assess founder-market fit, compare startup competitors, or diligence a company from a URL/pitch deck. Do not use for public-market stock analysis, personal financial advice, or legal counsel.
+    Produces an early-stage VC investment memo with founder diligence, investor signal analysis, market research, and competitive positioning. Use when a user asks to evaluate a startup, prepare an investment memo, assess founder-market fit, compare startup competitors, or diligence a company from a URL/pitch deck. 
 metadata:
     author: Tekton
     version: 1.1.0
@@ -23,10 +23,6 @@ Use this skill when users ask for company evaluation or diligence, including phr
 - "how strong is this founding team"
 - "compare this startup to competitors"
 
-Do not use this skill for:
-- Public equity or options analysis
-- Personal investing advice
-- Legal advice or contract interpretation as legal counsel
 
 ## Operating principles
 
@@ -43,17 +39,17 @@ When the user triggers this skill with a company name and URL, you must:
 
 1. Acknowledge the company and URL.
 2. Request inputs:
-- Pitch deck or slide deck (if available)
-- Written call notes or meeting transcripts
-- Other relevant materials (financials, cap tables, term sheets)
-- Specific deep-dive priority (for example: technical moat, founder-market fit, competition)
-- Whether the deal is in-thesis or an adjacent/new market for the fund
+    - Pitch deck or slide deck (if available)
+    - Written call notes or meeting transcripts
+    - Other relevant materials (financials, cap tables, term sheets)
+    - Specific deep-dive priority (for example: technical moat, founder-market fit, competition)
+    - Whether the deal is in-thesis or an adjacent/new market for the fund
 
 If the user has no files, proceed with URL-only research and explicitly mark confidence as lower.
 
 ### Phase 2: Founder and Team Deep Dive
 
-Research each founder and key executive individually.
+Research each founder and key executive individually. Use web search
 
 For each founder (explicitly including the CEO, Co-Founders, and CTO), include:
 
@@ -65,7 +61,7 @@ For each founder (explicitly including the CEO, Co-Founders, and CTO), include:
 6. Network/reputation: board roles, advisor roles, relevant visibility
 7. Team composition: key hires, critical gaps for current stage
 
-Use these sources for founder research:
+Use these sources for founder research:  Use web search
 
 | Objective | Target Sources |
 | :--- | :--- |
@@ -75,20 +71,20 @@ Use these sources for founder research:
 
 ### Phase 3: Investor and Backing Signal Analysis
 
-Assess who invested in the current startup and in founders' prior companies.
+Assess who invested in the current startup and in founders' prior companies. Use web search
 
 1. Current cap table snapshot (if available): lead, co-investors, angels
 2. Prior investor overlap: identify repeat backers
 3. Investor quality scoring:
-- Tier (top-tier, mid-tier, emerging, angels)
-- Domain relevance
-- Notable portfolio outcomes
-- Value-add reputation
+    - Tier (top-tier, mid-tier, emerging, angels)
+    - Domain relevance
+    - Notable portfolio outcomes
+    - Value-add reputation
 4. Signal stacking:
-- Strong signal
-- Moderate signal
-- Mixed signal
-- Weak signal
+    - Strong signal
+    - Moderate signal
+    - Mixed signal
+    - Weak signal
 
 Use these sources for investor research:
 
@@ -102,19 +98,14 @@ Use these sources for investor research:
 
 This section should educate generalist partners quickly.
 
-1. Market primer: problem, buyer, existing alternatives
-2. Market sizing: TAM/SAM/SOM with transparent methodology
-3. Timing/tailwinds: regulatory, technical, behavioral catalysts
-4. Competitive matrix: startup vs. top competitors, including segmentation by type, incumbents vs.    startups, and funding history
-5. Moat assessment:
-    - IP/patents
-    - Network effects
-    - Switching costs
-    - Data advantage
-    - Founder Advantage
-    - Brand & Trust
-    - Economies of Scale
-    - Regulatory barriers
+- Market primer: problem, buyer, existing alternatives, identify other companies in this space and provide a comparison
+- Market sizing: TAM/SAM/SOM with transparent methodology
+- Timing/tailwinds: regulatory, technical, behavioral catalysts
+- Competitive matrix: startup vs. top competitors, including segmentation by type, incumbents vs.    startups, and funding history
+- Synthetic Comparison: Differentiate between incumbents (slower, resource-heavy) and startup peers (faster, agile).
+- Moat Assessment: Rate IP, network effects, switching costs, and regulatory barriers.
+- Bear Case Analysis: Identify the existential risks (regulatory, technical, or market-timing).
+
 
 Use these sources for market research:
 
@@ -130,10 +121,13 @@ Use these sources for market research:
 1. Compare pitch claims against independent research
 2. Label each major claim: confirmed, partially supported, contradicted
 3. Build a first-draft memo framework
+4. Claim Mapping: Tag major pitch claims as [Confirmed], [Partially Supported], or [Contradicted].
+5. DD Prioritization: Move critical missing data points to the top of the memo.
 
 ### Phase 6: Guidance and Weighting
 
 Before finalizing, ask:
+
 - Which sections should be weighted most heavily?
 - Which sections are lower priority for this deal?
 - Which red flags should be explicitly stress-tested?
@@ -141,35 +135,40 @@ Before finalizing, ask:
 
 ### Phase 7: Final Memo
 
-Produce the final memo using the output format below.
+Produce the final memo using the output format below as a Word document.
 
 ## Examples
 
 Example 1: URL-only diligence
+
 - User says: "Evaluate https://example.com for a seed investment"
 - Actions:
-1. Run web research across founders, investors, market, and competitors
-2. Build memo with explicit low-confidence flags where private data is unavailable
-3. Provide recommendation plus Due Diligence Items
+    1. Run web research across founders, investors, market, and competitors
+    2. Build memo with explicit low-confidence flags where private data is unavailable
+    3. Provide recommendation plus Due Diligence Items
 
 Example 2: Deck plus call notes
+
 - User says: "Use this deck and notes to draft an investment memo"
 - Actions:
-1. Extract claims from provided materials
-2. Validate claims externally
-3. Produce memo with claim-vs-evidence and recommendation
+    1. Extract claims from provided materials
+    2. Validate claims externally
+    3. Produce memo with claim-vs-evidence and recommendation
 
 ## Troubleshooting
 
 ### Skill appears under-triggered
+
 Cause: User phrasing does not match trigger language.
 Fix: Ask one clarifying question and map intent to this workflow if they want diligence or an investment memo.
 
 ### Missing hard metrics (revenue, valuation, retention)
+
 Cause: Early-stage private data is not public.
 Fix: Do not guess. Add a Due Diligence Item and continue with available signal-based assessment.
 
 ### Conflicting sources
+
 Cause: Databases and press may disagree.
 Fix: Note discrepancy, prioritize primary/most recent source, and include confidence notes.
 
