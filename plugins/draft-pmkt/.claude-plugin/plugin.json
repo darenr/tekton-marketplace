@@ -5,5 +5,5 @@
      "email": "daren.race@gmail.com"
    },
   "description": "Adds a /draft-pmkt skill that drafts a PMKT document derived from an investment memo document that evaluates: Product, Market, Competition, Capital intensity, Valuation, Syndicate, Team, following the template found in assets",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
