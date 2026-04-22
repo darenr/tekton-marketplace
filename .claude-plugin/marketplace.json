@@ -13,6 +13,11 @@
       "name": "tekton-company-evaluator",
       "source": "./plugins/company-evaluator-plugin",
       "description": "Adds a /company-evaluator skill for evaluating early-stage startup companies"
+    },
+    {
+      "name": "tekton-draft-pmkt",
+      "source": "./plugins/draft-pmkt",
+      "description": "Adds a /draft-pmkt skill for drafting PMKT documents based on user-provided investment memos or company evaluation documents"
     }
   ]
 }
