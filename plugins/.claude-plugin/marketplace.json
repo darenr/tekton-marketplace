@@ -5,9 +5,14 @@
   },
   "plugins": [
         {
-        "name": "company-evaluator-plugin",
-        "source": "./company-evaluator-plugin",
-        "description": "Adds a /company-evaluator skill for evaluating companies"
+          "name": "company-evaluator-plugin",
+          "source": "./company-evaluator-plugin",
+          "description": "Adds a /company-evaluator skill for evaluating companies"
+        },
+        {
+          "name": "draft-pmkt-plugin",
+          "source": "./draft-pmkt",
+          "description": "Adds a /draft-pmkt skill that drafts a PMKT document derived from an investment memo document that evaluates: Product, Market, Competition, Capital intensity, Valuation, Syndicate, Team, following the template found in assets"
         }
     ]
 }
