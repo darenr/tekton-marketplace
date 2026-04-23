@@ -35,8 +35,7 @@ Do not use this skill for:
 - State uncertainty explicitly. If data is missing, add it to Due Diligence Items.
 - Prefer clear, plain language for partners who may be new to the market.
 - Use progressive disclosure: keep core instructions here, and put deep references in `references/` as this skill evolves.
-- When evaluating a company's ability to win, systematically assess the following areas, focusing on technology, incumbents vs. new entrants, and positioning/focus:
-- The evaluation should focus on: technology, incumbents vs. new entrants, and positioning/focus. It should also assess the company’s ability to win from the standpoint of its founding team, as well as in the context of the fundability and/or financial strength of its competitors.
+- When evaluating a company's ability to win, systematically assess technology, incumbents vs. new entrants, and positioning/focus, as well as the founding team and the fundability or financial strength of its competitors.
 - The output format should be a Microsoft Word document structured as an investor memo, with sections for each area of analysis and a final recommendation. 
 
 
