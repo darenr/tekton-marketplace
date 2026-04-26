@@ -50,7 +50,7 @@ def write_marketplace_json(marketplace: dict):
 if __name__ == "__main__":
     # Create marketplace.json
     marketplace = {
-        "name": "tekton-company-evaluator",
+        "name": "tekton-marketplace",
         "owner": {"name": "Tekton"},
         "plugins": [],
     }
