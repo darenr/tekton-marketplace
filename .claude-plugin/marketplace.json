@@ -5,19 +5,18 @@
     "email": "daren.race@gmail.com"
   },
   "metadata": {
-    "description": "Claude Code skills for investors evaluating early-stage startup companies",
-    "version": "1.2.1"
+    "description": "Claude Code skills for investors evaluating early-stage startup companies"
   },
   "plugins": [
     {
-      "name": "tekton-company-evaluator",
-      "source": "./plugins/company-evaluator-plugin",
-      "description": "Adds a /company-evaluator skill for evaluating early-stage startup companies"
+      "name": "draft-pmkt",
+      "description": "When assessing seed stage and early-stage technology startups a PMKT document is created from the  information gathered in the investment memo. The PMKT is a comprehensive analysis of the startup\u2019s Product and Technology, Market, Capital, and Team, structured to provide a clear recommendation on the investment opportunity.",
+      "source": "./draft-pmkt"
     },
     {
-      "name": "tekton-draft-pmkt",
-      "source": "./plugins/draft-pmkt",
-      "description": "Adds a /draft-pmkt skill for drafting PMKT documents based on user-provided investment memos or company evaluation documents"
+      "name": "company-evaluator",
+      "description": "Produces an early-stage VC investment memo with founder diligence, investor signal analysis, market research, and competitive positioning. Use when a user asks to evaluate a startup, prepare an investment memo, assess founder-market fit, compare startup competitors, or diligence a company from a URL/pitch deck. Do not use for public-market stock analysis, personal financial advice, or legal counsel.",
+      "source": "./company-evaluator"
     }
   ]
 }

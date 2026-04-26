@@ -1,9 +1,8 @@
 {
-  "name": "draft-pmkt-plugin",
-   "owner": {
-     "name": "Daren Race",
-     "email": "daren.race@gmail.com"
-   },
-  "description": "Adds a /draft-pmkt skill that drafts a PMKT document derived from an investment memo document that evaluates: Product, Market, Competition, Capital intensity, Valuation, Syndicate, Team, following the template found in assets",
-  "version": "1.0.1"
+  "name": "draft-pmkt",
+  "description": "When assessing seed stage and early-stage technology startups a PMKT document is created from the  information gathered in the investment memo. The PMKT is a comprehensive analysis of the startup\u2019s Product and Technology, Market, Capital, and Team, structured to provide a clear recommendation on the investment opportunity.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Tekton"
+  }
 }
