@@ -1,10 +1,3 @@
-# tekton-company-evaluator
+# tekton-marketplace
 
-Evaluator skill and tools for Tekton's company evaluator, packaged for use as an
-Anthropic Claude skill.
-
-## Anthropic Claude plugins
-
-This repository provides the `SKILL.md` definition for a reusable company
-evaluation skill.
-
+Repository for Claude Plugins for Tekton Investment Support
