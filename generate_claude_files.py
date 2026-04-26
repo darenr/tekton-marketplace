@@ -78,7 +78,7 @@ if __name__ == "__main__":
             {
                 "name": plugin["name"],
                 "description": plugin["description"],
-                "source": f"./{plugin_folder_name}",
+                "source": f"./plugins/{plugin_folder_name}",
                 "version": plugin["metadata"]["version"],
                 "author": {"name": plugin["metadata"].get("author", "Unknown")},
                 "license": plugin["metadata"].get("license", "MIT"),
