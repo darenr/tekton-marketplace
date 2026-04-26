@@ -52,6 +52,10 @@ if __name__ == "__main__":
     marketplace = {
         "name": "tekton-marketplace",
         "owner": {"name": "Tekton"},
+        "metadata": {
+            "description": "Tekton Claude plugin marketplace",
+            "version": "1.0.0",
+        },
         "plugins": [],
     }
 

@@ -3,6 +3,10 @@
   "owner": {
     "name": "Tekton"
   },
+  "metadata": {
+    "description": "Tekton Claude plugin marketplace",
+    "version": "1.0.0"
+  },
   "plugins": [
     {
       "name": "draft-pmkt",
