@@ -51,7 +51,7 @@ if __name__ == "__main__":
     # Create marketplace.json
     marketplace = {
         "name": "tekton-company-evaluator",
-        "owner": {"name": "Daren Race", "email": "daren.race@gmail.com"},
+        "owner": {"name": "Tekton"},
         "plugins": [],
     }
 

@@ -1,8 +1,7 @@
 {
   "name": "tekton-company-evaluator",
   "owner": {
-    "name": "Daren Race",
-    "email": "daren.race@gmail.com"
+    "name": "Tekton"
   },
   "plugins": [
     {
