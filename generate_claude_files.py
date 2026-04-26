@@ -52,9 +52,6 @@ if __name__ == "__main__":
     marketplace = {
         "name": "tekton-company-evaluator",
         "owner": {"name": "Daren Race", "email": "daren.race@gmail.com"},
-        "metadata": {
-            "description": "Claude Code skills for investors evaluating early-stage startup companies",
-        },
         "plugins": [],
     }
 
@@ -78,6 +75,9 @@ if __name__ == "__main__":
                 "name": plugin["name"],
                 "description": plugin["description"],
                 "source": f"./{plugin_folder_name}",
+                "version": plugin["metadata"]["version"],
+                "author": {"name": plugin["metadata"].get("author", "Unknown")},
+                "license": plugin["metadata"].get("license", "MIT"),
             }
         )
         print(f"Added {plugin['name']} to marketplace.json")
