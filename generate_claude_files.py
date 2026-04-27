@@ -86,12 +86,14 @@ def main() -> None:
         # Validation
         missing_keys = [k for k in ("name", "description", "metadata") if k not in plugin]
         if missing_keys:
-            print(f"Skipping {plugin_folder_name}: Missing required keys {missing_keys}")
+            print(
+                f"Skipping {plugin_folder_name}: Missing required keys {missing_keys} in SKILL.md metadata."
+            )
             continue
 
         metadata = plugin["metadata"]
         if "version" not in metadata:
-            print(f"Skipping {plugin_folder_name}: Missing 'version' in metadata")
+            print(f"Skipping {plugin_folder_name}: Missing 'version' in SKILL.md metadata")
             continue
 
         marketplace["plugins"].append(

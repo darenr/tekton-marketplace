@@ -9,6 +9,16 @@
   },
   "plugins": [
     {
+      "name": "granola-sync",
+      "description": "Query and sync Granola meetings to Obsidian vault. Use when user mentions Granola, meeting transcripts, or wants to sync meeting notes. Reads from local cache - no API needed.",
+      "source": "./plugins/granola-sync",
+      "version": "1.0.0",
+      "author": {
+        "name": "Tekton"
+      },
+      "license": "MIT"
+    },
+    {
       "name": "draft-pmkt",
       "description": "When assessing seed stage and early-stage technology startups a PMKT document is created from the  information gathered in the investment memo. The PMKT is a comprehensive analysis of the startup\u2019s Product and Technology, Market, Capital, and Team, structured to provide a clear recommendation on the investment opportunity.",
       "source": "./plugins/draft-pmkt",
