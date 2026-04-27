@@ -1,5 +1,5 @@
 ---
-name: company-evaluator-plugin
+name: company-evaluator
 description:  >-
     Produces an early-stage VC investment memo with founder diligence, investor signal analysis, market research, and competitive positioning. Use when a user asks to evaluate a startup, prepare an investment memo, assess founder-market fit, compare startup competitors, or diligence a company from a URL/pitch deck. 
 metadata:
