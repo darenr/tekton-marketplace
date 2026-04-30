@@ -1,8 +1,0 @@
-{
-  "name": "granola-sync",
-  "description": "Query and sync Granola meetings to Obsidian vault. Use when user mentions Granola, meeting transcripts, or wants to sync meeting notes. Reads from local cache - no API needed.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Tekton"
-  }
-}
