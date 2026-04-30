@@ -144,7 +144,7 @@ def format_duration(segments: list) -> int:
         start = datetime.fromisoformat(first_ts.replace("Z", "+00:00"))
         end = datetime.fromisoformat(last_ts.replace("Z", "+00:00"))
         return int((end - start).total_seconds() / 60)
-    except (ValueError, TypeError):
+    except (ValueError, TypeError, AttributeError):
         return 0
 
 
@@ -164,7 +164,7 @@ def format_transcript(segments: list, people: list = None, show_timestamps=False
             # Convert to local time (naive datetime for display)
             local_dt = dt.astimezone()
             time_str = local_dt.strftime("%H:%M:%S")
-        except (ValueError, TypeError):
+        except (ValueError, TypeError, AttributeError):
             time_str = "??:??:??"
 
         # Mark source (microphone vs system audio)
