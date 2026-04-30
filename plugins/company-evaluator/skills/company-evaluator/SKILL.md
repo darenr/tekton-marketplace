@@ -31,6 +31,7 @@ Do not use this skill for:
 ## Operating principles
 
 - Request from the user as much context as possible, including URLs, pitch decks, and specific questions they want answered, they should provide a pitch deck, website, or other materials to review. If they do not provide sufficient information, ask follow-up questions to gather more context before proceeding.
+- If the Granola connector is installed ask the user if they want to use it to gather information on the company, including founder background, investor signal, market research, and competitive landscape. If they agree, use the Granola connector to gather this information and include it in the analysis.
 - Be specific and evidence-driven. Every external claim must include a source.
 - State uncertainty explicitly. If data is missing, add it to Due Diligence Items.
 - Prefer clear, plain language for partners who may be new to the market.
