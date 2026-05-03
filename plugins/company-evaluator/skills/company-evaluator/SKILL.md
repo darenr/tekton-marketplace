@@ -4,7 +4,7 @@ description:  >-
     Produces an early-stage VC investment memo with founder diligence, investor signal analysis, market research, and competitive positioning. Use when a user asks to evaluate a startup, prepare an investment memo, assess founder-market fit, compare startup competitors, or diligence a company from a URL/pitch deck. 
 metadata:
     author: Tekton
-    version: 1.1.3
+    version: 1.1.4
     category: venture-capital
 ---
 

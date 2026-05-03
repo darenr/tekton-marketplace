@@ -5,7 +5,7 @@ description:  >-
     information gathered in the investment memo. The PMKT is a comprehensive analysis of the startup’s Product and Technology, Market, Capital, and Team, structured to provide a clear recommendation on the investment opportunity.
 metadata:
     author: Tekton
-    version: 1.1.1
+    version: 1.1.2
     category: venture-capital
 ---
 

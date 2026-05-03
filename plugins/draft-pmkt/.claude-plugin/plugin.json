@@ -1,7 +1,7 @@
 {
   "name": "draft-pmkt",
   "description": "When assessing seed stage and early-stage technology startups a PMKT document is created from the  information gathered in the investment memo. The PMKT is a comprehensive analysis of the startup\u2019s Product and Technology, Market, Capital, and Team, structured to provide a clear recommendation on the investment opportunity.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": {
     "name": "Tekton"
   }
