@@ -30,17 +30,18 @@ Do not use this skill for:
 
 ## Operating principles
 
-- Request from the user as much context as possible, including URLs, pitch decks, and specific questions they want answered, they should provide a pitch deck, website, or other materials to review. If they do not provide sufficient information, ask follow-up questions to gather more context before proceeding.
+- Request from the user as much context as possible, including URLs, pitch decks, and specific questions they want answered, they should provide a pitch deck, website, or other materials to review unless the working folder contains those documents, only ask for what's missing in the working folder. If they do not provide sufficient information, ask follow-up questions to gather more context before proceeding.
 - If the Granola connector is installed ask the user if they want to use it to gather information on the company, including founder background, investor signal, market research, and competitive landscape. If they agree, use the Granola connector to gather this information and include it in the analysis.
 - Be specific and evidence-driven. Every external claim must include a source.
 - State uncertainty explicitly. If data is missing, add it to Due Diligence Items.
 - Prefer clear, plain language for partners who may be new to the market.
 - When evaluating a company's ability to win, systematically assess technology, incumbents vs. new entrants, and positioning/focus, differentiation, as well as the founding team and the fundability or financial strength of its competitors.
 - Determine why the company is well-positioned to win in its market, and what risks it faces. Consider the company's technology/product, competitive landscape, market positioning, and founding team.
-- The output format should be a Microsoft Word document structured as an investor memo, with sections for each area of analysis and a final recommendation. 
+- The output format should be a Microsoft Word document structured as an investor memo, with sections for each area of analysis and a final recommendation. Follow the format and structure of a standard investor memo, including an executive summary, market analysis, competitive landscape, founder analysis, and investment recommendation, an example of which can be found in the references called investor-memo-template.md.
 
 
 See references/due-diligence.md for details of company evaluation framework.
+
 
 ## Quality Checklist
 
